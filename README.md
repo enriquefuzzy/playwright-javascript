@@ -1,12 +1,20 @@
 # playwright-javascript
 
+## Requirements
+
+- Install playwright with `npm init playwright@latest`
+- VS Code is recommended.
+
+## Description
+
+Automate "Dogs" and "Cats" Google searches in `google-search.spec.js`
 
 ## Execute tests
 
 Inside that directory, you can run several commands:
 
   `npx playwright test`
-    Runs the end-to-end tests.
+    Runs all tests specified in the playwright.config.js `testDir`.
 
   `npx playwright test --ui`
     Starts the interactive UI mode.
@@ -23,10 +31,6 @@ Inside that directory, you can run several commands:
   `npx playwright codegen`
     Auto generate tests with Codegen.
 
-We suggest that you begin by typing:
-
-    `npx playwright test`
-
 ### Open Latest Report
-Open latest indext.html report in playwright-report/ directory
-`npx playwright show-report`
+
+Open latest indext.html report in playwright-report/ directory `npx playwright show-report`
