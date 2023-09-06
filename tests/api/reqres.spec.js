@@ -33,7 +33,19 @@ test('Create user', async ({request}) => {
     expect(responseBody.createdAt).toBeTruthy();
 });
 
-test('Update user', async ({request}) => {
+ test('Get user', async ({request}) => {
+    const response = await request.get('https://reqres.in/api/users/2');
+    console.log(await response.json());
+    const responseBody = JSON.parse(await response.text());
+    expect(response.status()).toBe(200);
+    expect(responseBody.data.id).toBe(2);
+    expect(responseBody.data.email).toBeTruthy();
+    expect(responseBody.data.first_name).toBe('Janet');
+    expect(responseBody.data.last_name).toBe('Weaver');
+    expect(responseBody.data.avatar).toBeTruthy();
+});
+
+test('Put user', async ({request}) => {
     const response = await request.put('https://reqres.in/api/users/2',
     {
         data: {
@@ -49,6 +61,25 @@ test('Update user', async ({request}) => {
     expect(response.status()).toBe(200);
     expect(responseBody.name).toBe('Enrique');
     expect(responseBody.job).toBe('Engineer');
+    expect(responseBody.updatedAt).toBeTruthy();
+});
+
+test('Patch user', async ({request}) => {
+    const response = await request.patch('https://reqres.in/api/users/2',
+    {
+        data: {
+            'name': 'Enrique Aguirre',
+            'job': 'Software Development Engineer in Test'
+        },
+        headers:{
+            'Accept': 'application/json'
+        }
+    });
+    console.log(await response.json());
+    const responseBody = JSON.parse(await response.text());
+    expect(response.status()).toBe(200);
+    expect(responseBody.name).toBe('Enrique Aguirre');
+    expect(responseBody.job).toBe('Software Development Engineer in Test');
     expect(responseBody.updatedAt).toBeTruthy();
 });
 

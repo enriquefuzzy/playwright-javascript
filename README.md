@@ -7,7 +7,12 @@
 
 ## Description
 
-Automate "Dogs" and "Cats" Google searches in `google-search.spec.js`
+Page object files are in `/pages` folder.
+
+Spec files that contain tests are in `/tests` folder.
+
+- Automates "Dogs" and "Cats" Google searches in `google-search.spec.js`
+- Automates GET, POST, PUT, PATCH, and DELETE requests from `https://reqres.in` in `/api/reqres.spec.js`
 
 ## Execute tests
 
